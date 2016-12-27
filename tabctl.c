@@ -44,7 +44,7 @@ static LRESULT CALLBACK TabCtlSubClass(HWND hWnd, UINT uMsg, WPARAM wParam, LPAR
 			SiTabCtl_OnRButtonClk();
 		}
 		break;
-	case WM_LBUTTONDBLCLK:
+	case WM_MBUTTONDOWN:
 		{
 			SiTabCtl_OnLButtonDblClk();
 		}
@@ -117,7 +117,7 @@ void SiTabCtl_Create(HWND parent)
 	HFONT font = CreateFont(16,0,0,0,FW_NORMAL,FALSE,FALSE,0,DEFAULT_CHARSET,OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH | FF_SWISS,"Courier New");
 	SendMessage(hwnd_tab_ctl,WM_SETFONT,(WPARAM)font,MAKELPARAM(1,0));
 							
-	SiTabCtl_AddCloseItem();
+	/*SiTabCtl_AddCloseItem();*/
 	last_row_count = 1;
 	old_tab_ctl_proc = (WNDPROC)GetWindowLong(hwnd_tab_ctl,GWL_WNDPROC);
 	if(old_tab_ctl_proc == NULL)
@@ -131,7 +131,7 @@ void SiTabCtl_Create(HWND parent)
 int SiTabCtl_GetItemCount(void)
 {
 	//保留关闭按钮
-	return TabCtrl_GetItemCount(hwnd_tab_ctl)-1;
+	return TabCtrl_GetItemCount(hwnd_tab_ctl);
 }
 
 //获取行数

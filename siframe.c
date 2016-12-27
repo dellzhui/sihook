@@ -66,7 +66,7 @@ static LRESULT CALLBACK SiFrameSubClass(HWND hWnd, UINT uMsg, WPARAM wParam, LPA
 			}
 			else if(hdr->code == NM_CLICK)
 			{
-				SiTabCtl_OnLButtonClk();
+				/*SiTabCtl_OnLButtonClk();*/
 			}
 		}
 		break;
